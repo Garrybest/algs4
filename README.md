@@ -9,4 +9,6 @@
 
 StdIn.isEmpty()方法读入数据时，若使用Idea会导致死循环，用ctrl+D可结束读数据。
 
+VM options中使用参数-ea开启断言。
+
 注：对书中代码进行了修改，resources目录下存放书中所使用的所有原始数据。
