@@ -5,7 +5,8 @@ import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdOut;
 
 /**
- * @Description: 选择排序算法
+ * 选择排序算法
+ *
  * @Author: Fang Rui
  * @Date: 2018/5/22
  * @Time: 10:10
@@ -35,8 +36,7 @@ public class Selection {
     }
 
     public static void show(Comparable[] array) {
-        for (int i = 0; i < array.length; i++)
-            StdOut.print(array[i] + " ");
+        for (Comparable anArray : array) StdOut.print(anArray + " ");
         StdOut.println();
     }
 
