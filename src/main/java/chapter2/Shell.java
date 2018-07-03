@@ -1,8 +1,6 @@
 package chapter2;
 
-import chapter1.RecursiveBinarySearch;
 import edu.princeton.cs.algs4.In;
-import edu.princeton.cs.algs4.StdOut;
 
 /**
  * 希尔排序
@@ -22,31 +20,13 @@ public class Shell {
             for (int i = h; i < N; i++) {
                 Comparable insertElement = array[i];
                 int j = i;
-                for (; j >= h && less(insertElement, array[j-h]); j -= h) {
+                for (; j >= h && SortUtil.less(insertElement, array[j - h]); j -= h) {
                     array[j] = array[j - h];
                 }
                 array[j] = insertElement;
             }
             h /= 3;
         }
-    }
-
-    private static boolean less(Comparable a, Comparable b) {
-        return a.compareTo(b) < 0;
-    }
-
-    public static void show(Comparable[] array) {
-        for (Comparable anArray : array)
-            StdOut.print(anArray + " ");
-        StdOut.println();
-    }
-
-    public static boolean isSorted(Comparable[] array) {
-        for (int i = 1; i < array.length; i++) {
-            if (less(array[i], array[i - 1]))
-                return false;
-        }
-        return true;
     }
 
     public static void main(String[] args) {
@@ -56,7 +36,7 @@ public class Shell {
 
         String[] array = in.readAllStrings();
         Shell.sort(array);
-        assert Shell.isSorted(array);
-        Shell.show(array);
+        assert SortUtil.isSorted(array);
+        SortUtil.show(array);
     }
 }

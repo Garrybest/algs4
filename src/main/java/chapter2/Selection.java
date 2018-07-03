@@ -2,10 +2,10 @@ package chapter2;
 
 import chapter1.RecursiveBinarySearch;
 import edu.princeton.cs.algs4.In;
-import edu.princeton.cs.algs4.StdOut;
+
 
 /**
- * 选择排序算法
+ * 选择排序
  *
  * @Author: Fang Rui
  * @Date: 2018/5/22
@@ -17,35 +17,11 @@ public class Selection {
         for (int i = 0; i < array.length - 1; i++) {
             int min = i;
             for (int j = i + 1; j < array.length; j++) {
-                if (less(array[j], array[min]))
+                if (SortUtil.less(array[j], array[min]))
                     min = j;
             }
-            Selection.exch(array, min, i);
+            SortUtil.swap(array, min, i);
         }
-    }
-
-    private static boolean less(Comparable a, Comparable b) {
-        return a.compareTo(b) < 0;
-    }
-
-    // 交换两个局部变量是没用的
-    private static void exch(Comparable[] array, int i, int j) {
-        Comparable temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
-    }
-
-    public static void show(Comparable[] array) {
-        for (Comparable anArray : array) StdOut.print(anArray + " ");
-        StdOut.println();
-    }
-
-    public static boolean isSorted(Comparable[] array) {
-        for (int i = 1; i < array.length; i++) {
-            if (less(array[i], array[i - 1]))
-                return false;
-        }
-        return true;
     }
 
     public static void main(String[] args) {
@@ -55,7 +31,7 @@ public class Selection {
 
         String[] array = in.readAllStrings();
         Selection.sort(array);
-        assert Selection.isSorted(array);
-        Selection.show(array);
+        assert SortUtil.isSorted(array);
+        SortUtil.show(array);
     }
 }
