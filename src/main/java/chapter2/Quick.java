@@ -46,7 +46,7 @@ public class Quick {
 
     public static void main(String[] args) {
         // 读取文件
-        String filePath = Insertion.class.getClassLoader().getResource("1Kints.txt").getPath();
+        String filePath = Quick.class.getClassLoader().getResource("1Kints.txt").getPath();
         In in = new In(filePath);
 
         int[] a = in.readAllInts();

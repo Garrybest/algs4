@@ -16,18 +16,27 @@ import java.util.Queue;
  * @Time: 10:18
  */
 public class Bst<Key extends Comparable<Key>, Value> implements OrderSt<Key, Value> {
-    private Node root;
+    protected Node root;
 
-    private class Node {
-        private Key key;
-        private Value val;
-        private Node left, right;
-        private int N;
+    class Node {
+        Key key;
+        Value val;
+        Node left, right;
+        int N;
+        boolean color;
 
         public Node(Key key, Value val, int n) {
             this.key = key;
             this.val = val;
             this.N = n;
+            this.color = false;
+        }
+
+        public Node(Key key, Value val, int n, boolean color) {
+            this.key = key;
+            this.val = val;
+            this.N = n;
+            this.color = color;
         }
     }
 
@@ -36,7 +45,7 @@ public class Bst<Key extends Comparable<Key>, Value> implements OrderSt<Key, Val
         root = put(key, value, root);
     }
 
-    private Node put(Key key, Value value, Node x) {
+    protected Node put(Key key, Value value, Node x) {
         if (x == null)
             return new Node(key, value, 1);
         int cmp = key.compareTo(x.key);
@@ -123,7 +132,7 @@ public class Bst<Key extends Comparable<Key>, Value> implements OrderSt<Key, Val
         return size(root);
     }
 
-    private int size(Node node) {
+    protected final int size(Node node) {
         if (node == null)
             return 0;
         else
@@ -260,7 +269,7 @@ public class Bst<Key extends Comparable<Key>, Value> implements OrderSt<Key, Val
 
     public static void main(String[] args) {
         // 读取文件
-        String filePath = Insertion.class.getClassLoader().getResource("words3.txt").getPath();
+        String filePath = Bst.class.getClassLoader().getResource("words3.txt").getPath();
         In in = new In(filePath);
 
         String[] strings = in.readAllStrings();

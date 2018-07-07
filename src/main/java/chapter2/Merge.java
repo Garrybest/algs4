@@ -55,7 +55,7 @@ public class Merge {
 
     public static void main(String[] args) {
         // 读取文件
-        String filePath = Shell.class.getClassLoader().getResource("words3.txt").getPath();
+        String filePath = Merge.class.getClassLoader().getResource("words3.txt").getPath();
         In in = new In(filePath);
 
         String[] array = in.readAllStrings();

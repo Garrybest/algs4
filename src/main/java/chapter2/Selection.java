@@ -26,7 +26,7 @@ public class Selection {
 
     public static void main(String[] args) {
         // 读取文件
-        String filePath = RecursiveBinarySearch.class.getClassLoader().getResource("words3.txt").getPath();
+        String filePath = Selection.class.getClassLoader().getResource("words3.txt").getPath();
         In in = new In(filePath);
 
         String[] array = in.readAllStrings();

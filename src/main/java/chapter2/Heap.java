@@ -53,7 +53,7 @@ public class Heap {
 
     public static void main(String[] args) {
         // 读取文件
-        String filePath = Insertion.class.getClassLoader().getResource("words3.txt").getPath();
+        String filePath = Heap.class.getClassLoader().getResource("words3.txt").getPath();
         In in = new In(filePath);
 
         String[] array = in.readAllStrings();
