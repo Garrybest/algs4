@@ -31,9 +31,10 @@ public class UnionFind {
     }
 
     public int find(int p) {
-        while (p != id[p])
-            p = id[p];
-        return p;
+        if (p == id[p])
+            return p;
+        id[p] = find(id[p]);
+        return id[p];
     }
 
     public boolean connected(int p, int q) {
