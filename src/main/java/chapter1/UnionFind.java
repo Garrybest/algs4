@@ -13,13 +13,14 @@ import edu.princeton.cs.algs4.UF;
  */
 public class UnionFind {
 
-    private int id[];
-    private int height[];
+    private int[] id;
+    private int[] height;
     private int count;
 
     public UnionFind(int size) {
         count = size;
         id = new int[size];
+        height = new int[size];
         for (int i = 0; i < size; i++) {
             id[i] = i;
             height[i] = 1;
