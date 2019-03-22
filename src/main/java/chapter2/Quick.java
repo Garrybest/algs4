@@ -35,7 +35,7 @@ public class Quick {
                 if (left == high)
                     break;
             }
-            while (SortUtil.less(array[low], array[--high])) ; // array[low]充当哨兵的角色，因为它不可能比自己小
+            while (SortUtil.less(array[low], array[--right])) ; // array[low]充当哨兵的角色，因为它不可能比自己小
             if (left >= right)
                 break;
             SortUtil.swap(array, left, right);
@@ -54,7 +54,7 @@ public class Quick {
         for (int i = 0; i < a.length; i++) {
             array[i] = a[i];
         }
-        Insertion.sort(array, 0, array.length - 1);
+        Quick.sort(array, 0, array.length - 1);
         assert SortUtil.isSorted(array);
         SortUtil.show(array);
     }
